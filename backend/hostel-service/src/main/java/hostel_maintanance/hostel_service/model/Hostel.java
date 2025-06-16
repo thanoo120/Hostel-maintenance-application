@@ -16,7 +16,7 @@ import java.util.List;
 public class Hostel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long hostelId;
+    private Long id; // ✅ Primary key (auto incremented)
 
     @Column(nullable = false)
     private String hostelName;
@@ -24,17 +24,17 @@ public class Hostel {
     private String location;
 
     private Long category;
-@OneToMany(mappedBy = "hostel",cascade = CascadeType.ALL,fetch = FetchType.LAZY)
-    private List<Room> rooms=new ArrayList<>();
 
-public int getTotalCapacity(){
-    return rooms.stream().mapToInt(Room::getCapacity).sum();
+    @OneToMany(mappedBy = "hostel", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<Room> rooms = new ArrayList<>();
 
-}
+    public int getTotalCapacity() {
+        return rooms.stream().mapToInt(Room::getCapacity).sum();
+    }
 
-public int getAvailableCapacity(){
-    return rooms.stream().mapToInt(Room::getAvailableSpaces).sum();
-}
+    public int getAvailableCapacity() {
+        return rooms.stream().mapToInt(Room::getAvailableSpaces).sum();
+    }
 
 
 }

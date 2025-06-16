@@ -24,7 +24,7 @@ public class HostelMapper {
         if (hostel == null) return null;
 
         HostelDTO dto = new HostelDTO();
-        dto.setId(hostel.getHostelId());
+        dto.setId(hostel.getId());
         dto.setName(hostel.getHostelName());
         dto.setLocation(hostel.getLocation());
         dto.setTotalCapacity(hostel.getTotalCapacity());
@@ -42,7 +42,7 @@ public class HostelMapper {
         if (dto == null) return null;
 
         Hostel hostel = new Hostel();
-        hostel.setHostelId(dto.getId());
+        hostel.setId(dto.getId());
         hostel.setHostelName(dto.getName());
         hostel.setLocation(dto.getLocation());
         // Room entities and total capacity are set separately if needed

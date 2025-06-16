@@ -53,7 +53,7 @@ public class RoomServiceImplementation implements RoomService {
 
 
         if (!existingRoom.getRoomNumber().equals(roomDTO.getRoomNumber()) &&
-                roomRepository.existsByHostelIdAndRoomNumber(existingRoom.getHostel().getHostelId(), roomDTO.getRoomNumber())) {
+                roomRepository.existsByHostelIdAndRoomNumber(existingRoom.getHostel().getId(), roomDTO.getRoomNumber())) {
             throw new DuplicateResourceException("Room with number " + roomDTO.getRoomNumber() +
                     " already exists in this hostel");
         }

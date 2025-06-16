@@ -10,8 +10,8 @@ import java.util.List;
 public interface RoomRepository extends JpaRepository<Room,Long> {
 List<Room> findByHostelId(Long hostelId);
 
-@Query("SELECT r FROM Room r WHERE r.availableSpaces>0")
-    List<Room> findAllAvailableRooms();
+@Query("SELECT r FROM Room r WHERE r.capacity > r.occupiedSpaces")
+List<Room> findAllAvailableRooms();
 
 boolean existsByHostelIdAndRoomNumber(Long hostelId,String roomNumber);
 }

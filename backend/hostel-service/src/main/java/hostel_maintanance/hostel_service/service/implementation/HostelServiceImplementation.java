@@ -23,7 +23,7 @@ public class HostelServiceImplementation implements HostelService {
     @Override
     @Transactional
     public HostelDTO createHostel(HostelDTO hostelDTO){
-        if(hostelRepository.existsByName(hostelDTO.getName())){
+        if(hostelRepository.existsByHostelName(hostelDTO.getName())){
             throw new DuplicateResourceException("Hostel with name" + hostelDTO.getName() + "already exists");
         }
 
@@ -41,7 +41,7 @@ public class HostelServiceImplementation implements HostelService {
 
         // Check if the updated name conflicts with another hostel
         if (!existingHostel.getHostelName().equals(hostelDTO.getName()) &&
-                hostelRepository.existsByName(hostelDTO.getName())) {
+                hostelRepository.existsByHostelName(hostelDTO.getName())) {
             throw new DuplicateResourceException("Hostel with name " + hostelDTO.getName() + " already exists");
         }
 

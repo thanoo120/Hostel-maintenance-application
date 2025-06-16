@@ -16,7 +16,7 @@ public class RoomMapper {
         dto.setCapacity(room.getCapacity());
         dto.setOccupiedSpaces(room.getOccupiedSpaces());
         dto.setAvailableSpaces(room.getAvailableSpaces());
-        dto.setHostelId(room.getHostel().getHostelId());
+        dto.setHostelId(room.getHostel().getId());
         return dto;
     }
 
