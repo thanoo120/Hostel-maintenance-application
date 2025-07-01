@@ -8,7 +8,8 @@ import org.springframework.stereotype.Component;
 public class RoomMapper {
 
     public RoomDTO toDto(Room room) {
-        if (room == null) return null;
+        if (room == null)
+            return null;
 
         RoomDTO dto = new RoomDTO();
         dto.setId(room.getRoomId());
@@ -16,12 +17,13 @@ public class RoomMapper {
         dto.setCapacity(room.getCapacity());
         dto.setOccupiedSpaces(room.getOccupiedSpaces());
         dto.setAvailableSpaces(room.getAvailableSpaces());
-        dto.setHostelId(room.getHostel().getId());
+        dto.setHostelId(room.getHostel() != null ? room.getHostel().getId() : null);
         return dto;
     }
 
     public Room toEntity(RoomDTO dto) {
-        if (dto == null) return null;
+        if (dto == null)
+            return null;
 
         Room room = new Room();
         room.setRoomId(dto.getId());
@@ -33,7 +35,8 @@ public class RoomMapper {
     }
 
     public void updateRoomFromDto(RoomDTO dto, Room room) {
-        if (dto == null || room == null) return;
+        if (dto == null || room == null)
+            return;
 
         room.setRoomNumber(dto.getRoomNumber());
         room.setCapacity(dto.getCapacity());

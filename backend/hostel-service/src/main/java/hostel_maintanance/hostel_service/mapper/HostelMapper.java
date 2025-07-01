@@ -3,7 +3,6 @@ package hostel_maintanance.hostel_service.mapper;
 import hostel_maintanance.hostel_service.dto.HostelDTO;
 import hostel_maintanance.hostel_service.dto.RoomDTO;
 import hostel_maintanance.hostel_service.model.Hostel;
-import hostel_maintanance.hostel_service.model.Room;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -21,7 +20,8 @@ public class HostelMapper {
     }
 
     public HostelDTO toDto(Hostel hostel) {
-        if (hostel == null) return null;
+        if (hostel == null)
+            return null;
 
         HostelDTO dto = new HostelDTO();
         dto.setId(hostel.getId());
@@ -39,7 +39,8 @@ public class HostelMapper {
     }
 
     public Hostel toEntity(HostelDTO dto) {
-        if (dto == null) return null;
+        if (dto == null)
+            return null;
 
         Hostel hostel = new Hostel();
         hostel.setId(dto.getId());
@@ -50,10 +51,12 @@ public class HostelMapper {
     }
 
     public void updateHostelFromDto(HostelDTO dto, Hostel hostel) {
-        if (dto == null || hostel == null) return;
+        if (dto == null || hostel == null)
+            return;
 
         hostel.setHostelName(dto.getName());
         hostel.setLocation(dto.getLocation());
-        // You can choose whether to update rooms or not; normally avoid updating room list here.
+        // You can choose whether to update rooms or not; normally avoid updating room
+        // list here.
     }
 }

@@ -1,11 +1,9 @@
 package hostel_application.student_service.controller;
 
 import hostel_application.student_service.dto.StudentDto;
-import hostel_application.student_service.repository.StudentRepository;
 import hostel_application.student_service.services.StudentService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -23,7 +21,8 @@ public class StudentController {
     }
 
     @PutMapping("/{studentId}")
-    public ResponseEntity<StudentDto> updateStudent(@PathVariable String studentId, @RequestBody StudentDto studentDto) {
+    public ResponseEntity<StudentDto> updateStudent(@PathVariable String studentId,
+            @RequestBody StudentDto studentDto) {
         return ResponseEntity.ok(studentService.updateStudent(studentId, studentDto));
     }
 
@@ -39,8 +38,8 @@ public class StudentController {
         return ResponseEntity.ok(studentService.getStudentById(studentId));
     }
 
-   @GetMapping("/all")
-    public ResponseEntity<List<StudentDto>> getAllStudents(){
+    @GetMapping("/all")
+    public ResponseEntity<List<StudentDto>> getAllStudents() {
         return ResponseEntity.ok(studentService.getAllStudents());
-   }
+    }
 }
