@@ -16,7 +16,7 @@ import java.util.List;
 public class Hostel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id; // ✅ Primary key (auto incremented)
+    private Long id;
 
     @Column(nullable = false)
     private String hostelName;

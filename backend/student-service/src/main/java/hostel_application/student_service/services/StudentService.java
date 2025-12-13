@@ -1,6 +1,7 @@
 package hostel_application.student_service.services;
 
 import hostel_application.student_service.dto.StudentDto;
+import reactor.core.scheduler.Scheduler;
 
 import java.util.List;
 
@@ -11,6 +12,8 @@ public interface StudentService {
     public void deleteStudent(String studentId);
     public StudentDto getStudentById(String studentId);
     public List<StudentDto> getAllStudents();
-
+    public String askFacilities();
+    public String sendComplaints();
+    public void selectAWorkerForTheIssue();
 
 }
