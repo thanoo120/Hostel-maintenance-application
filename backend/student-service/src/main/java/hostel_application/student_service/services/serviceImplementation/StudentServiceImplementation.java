@@ -40,6 +40,21 @@ public class StudentServiceImplementation implements StudentService {
     }
 
     @Override
+    public String askFacilities() {
+        return "";
+    }
+
+    @Override
+    public String sendComplaints() {
+        return "";
+    }
+
+    @Override
+    public void selectAWorkerForTheIssue() {
+
+    }
+
+    @Override
     public StudentDto updateStudent(String studentId,StudentDto studentDto){
         Student existingStudent=studentRepository.findById(studentId)
                 .orElseThrow(() ->new ResourceNotFoundException("Student not found with ID: " + studentId));
