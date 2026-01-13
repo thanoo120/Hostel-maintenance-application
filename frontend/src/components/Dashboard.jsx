@@ -1,13 +1,15 @@
-import React, { useState, useEffect } from 'react';
-import { hostelAPI, studentAPI, allocationAPI, roomAPI } from '../services/api';
-import './Dashboard.css';
+import React, { useState, useEffect } from "react";
+import { hostelAPI, studentAPI, allocationAPI, roomAPI } from "../services/api";
+import { useToast } from "../utils/toast";
+import "./Dashboard.css";
 
 function Dashboard() {
+  const { showToast } = useToast();
   const [stats, setStats] = useState({
     hostels: 0,
     students: 0,
     activeAllocations: 0,
-    availableRooms: 0
+    availableRooms: 0,
   });
   const [loading, setLoading] = useState(true);
 
@@ -17,28 +19,36 @@ function Dashboard() {
 
   const fetchStats = async () => {
     try {
-      const [hostelsRes, studentsRes, allocationsRes, roomsRes] = await Promise.all([
-        hostelAPI.getAll(),
-        studentAPI.getAll(),
-        allocationAPI.getActive(),
-        roomAPI.getAvailable()
-      ]);
-        console.log(hostelAPI.getAll()),
+      const [hostelsRes, studentsRes, allocationsRes, roomsRes] =
+        await Promise.all([
+          hostelAPI.getAll(),
+          studentAPI.getAll(),
+          allocationAPI.getActive(),
+          roomAPI.getAvailable(),
+        ]);
       setStats({
-        hostels: hostelsRes.data.length,
-        students: studentsRes.data.length,
-        activeAllocations: allocationsRes.data.length,
-        availableRooms: roomsRes.data.length
+        hostels: Array.isArray(hostelsRes.data) ? hostelsRes.data.length : 0,
+        students: Array.isArray(studentsRes.data) ? studentsRes.data.length : 0,
+        activeAllocations: Array.isArray(allocationsRes.data)
+          ? allocationsRes.data.length
+          : 0,
+        availableRooms: Array.isArray(roomsRes.data) ? roomsRes.data.length : 0,
       });
     } catch (error) {
-      console.error('Error fetching stats:', error);
+      console.error("Error fetching stats:", error);
+      showToast("Failed to load dashboard statistics", "error");
     } finally {
       setLoading(false);
     }
   };
 
   if (loading) {
-    return <div className="loading">Loading dashboard...</div>;
+    return (
+      <div className="loading">
+        <div className="spinner"></div>
+        <p>Loading dashboard...</p>
+      </div>
+    );
   }
 
   return (
@@ -67,5 +77,3 @@ function Dashboard() {
 }
 
 export default Dashboard;
-
-

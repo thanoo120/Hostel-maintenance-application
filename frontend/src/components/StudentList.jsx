@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { studentAPI } from "../services/api";
+import { useToast } from "../utils/toast";
 import StudentForm from "./StudentForm.jsx";
 
 function StudentList() {
@@ -7,7 +8,7 @@ function StudentList() {
   const [loading, setLoading] = useState(true);
   const [showForm, setShowForm] = useState(false);
   const [editingStudent, setEditingStudent] = useState(null);
-  const [message, setMessage] = useState({ type: "", text: "" });
+  const { showToast } = useToast();
 
   useEffect(() => {
     fetchStudents();
@@ -43,10 +44,10 @@ function StudentList() {
     if (window.confirm("Are you sure you want to delete this student?")) {
       try {
         await studentAPI.delete(studentId);
-        showMessage("success", "Student deleted successfully");
+        showToast("Student deleted successfully", "success");
         fetchStudents();
       } catch (error) {
-        showMessage("error", "Failed to delete student");
+        showToast(error.message || "Failed to delete student", "error");
       }
     }
   };
@@ -59,17 +60,13 @@ function StudentList() {
   const handleFormSuccess = () => {
     handleFormClose();
     fetchStudents();
-    showMessage(
-      "success",
+    showToast(
       editingStudent
         ? "Student updated successfully"
-        : "Student registered successfully"
+        : "Student registered successfully",
+      "success"
     );
   };
-
-  if (loading) {
-    return <div className="loading">Loading students...</div>;
-  }
 
   return (
     <div className="card">
@@ -80,11 +77,12 @@ function StudentList() {
         </button>
       </div>
 
-      {message.text && (
-        <div className={`alert alert-${message.type}`}>{message.text}</div>
-      )}
-
-      {students.length === 0 ? (
+      {loading ? (
+        <div className="loading">
+          <div className="spinner"></div>
+          <p>Loading students...</p>
+        </div>
+      ) : students.length === 0 ? (
         <div className="empty-state">
           <div className="empty-state-icon">👨‍🎓</div>
           <p>No students found. Register your first student!</p>
