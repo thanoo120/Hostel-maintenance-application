@@ -1,4 +1,4 @@
-package hostel_maintanance.hostel_service.service.implementation;
+package hostel_maintanance.hostel_service.service.impl;
 
 import hostel_maintanance.hostel_service.dto.HostelDTO;
 import hostel_maintanance.hostel_service.exception.DuplicateResourceException;
@@ -71,8 +71,9 @@ public class HostelServiceImplementation implements HostelService {
     public List<HostelDTO> getAllHostels() {
         return hostelRepository.findAll().stream()
                 .map(hostelMapper::toDto)
-                .collect(Collectors.toList());
+                .toList();
     }
+
 
 
 }

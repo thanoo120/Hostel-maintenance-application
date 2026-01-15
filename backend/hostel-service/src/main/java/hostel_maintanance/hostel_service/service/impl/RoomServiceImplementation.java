@@ -1,4 +1,4 @@
-package hostel_maintanance.hostel_service.service.implementation;
+package hostel_maintanance.hostel_service.service.impl;
 
 import hostel_maintanance.hostel_service.dto.RoomDTO;
 import hostel_maintanance.hostel_service.exception.DuplicateResourceException;
@@ -10,12 +10,11 @@ import hostel_maintanance.hostel_service.model.Room;
 import hostel_maintanance.hostel_service.repository.HostelRepository;
 import hostel_maintanance.hostel_service.repository.RoomRepository;
 import hostel_maintanance.hostel_service.service.RoomService;
+import hostel_maintanance.hostel_service.service.utill.Constants;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -49,7 +48,7 @@ public class RoomServiceImplementation implements RoomService {
     @Transactional
     public RoomDTO updateRoom(Long roomId, RoomDTO roomDTO) {
         Room existingRoom = roomRepository.findById(roomId)
-                .orElseThrow(() -> new ResourceNotFoundException("Room not found with ID: " + roomId));
+                .orElseThrow(() -> new ResourceNotFoundException(Constants.ROOM_NOT_FOUND + roomId));
 
 
         if (!existingRoom.getRoomNumber().equals(roomDTO.getRoomNumber()) &&
@@ -72,7 +71,7 @@ public class RoomServiceImplementation implements RoomService {
     @Transactional
     public void deleteRoom(Long roomId) {
         Room room = roomRepository.findById(roomId)
-                .orElseThrow(() -> new ResourceNotFoundException("Room not found with ID: " + roomId));
+                .orElseThrow(() -> new ResourceNotFoundException(Constants.ROOM_NOT_FOUND + roomId));
 
         // Check if room is occupied
         if (room.getOccupiedSpaces() != null && room.getOccupiedSpaces() > 0) {
@@ -86,7 +85,7 @@ public class RoomServiceImplementation implements RoomService {
     @Transactional
     public RoomDTO getRoomById(Long roomId) {
         Room room = roomRepository.findById(roomId)
-                .orElseThrow(() -> new ResourceNotFoundException("Room not found with ID: " + roomId));
+                .orElseThrow(() -> new ResourceNotFoundException(Constants.ROOM_NOT_FOUND + roomId));
         return roomMapper.toDto(room);
     }
 
@@ -100,7 +99,7 @@ public class RoomServiceImplementation implements RoomService {
 
         return roomRepository.findByHostelId(hostelId).stream()
                 .map(roomMapper::toDto)
-                .collect(Collectors.toList());
+                .toList();
     }
 
     @Override
@@ -108,7 +107,7 @@ public class RoomServiceImplementation implements RoomService {
     public List<RoomDTO> getAllAvailableRooms() {
         return roomRepository.findAllAvailableRooms().stream()
                 .map(roomMapper::toDto)
-                .collect(Collectors.toList());
+                .toList();
     }
 
     @Override
@@ -117,7 +116,7 @@ public class RoomServiceImplementation implements RoomService {
         Room room = roomRepository.findById(roomId)
                 .orElseThrow(() -> new ResourceNotFoundException("Room not found with ID: " + roomId));
 
-        Integer occupiedSpaces = room.getOccupiedSpaces() == null ? 0 : room.getOccupiedSpaces();
+        int occupiedSpaces = room.getOccupiedSpaces() == null ? 0 : room.getOccupiedSpaces();
 
         if (increase) {
             if (occupiedSpaces >= room.getCapacity()) {
