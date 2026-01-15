@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="2100d663-23d6-4e6a-9f3b-b5d8da6981ed" name="Changes" comment="updated" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Exception" />
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;thanoo120&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/thanoo120/Hostel-maintenance-application.git&quot;,
+    &quot;accountId&quot;: &quot;aacb183e-0a4e-4abd-89f2-32d1bb4208ab&quot;
+  }
+}</component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 4
+}</component>
+  <component name="ProjectId" id="2yZzvmej35yj2zVat8fxNV78aO2" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.AllocationServicesApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Application.HostelServiceApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Application.ServerRegistryApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Application.StudentServiceApplication.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;SONARLINT_PRECOMMIT_ANALYSIS&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/DELL/OneDrive - University of Kelaniya/Desktop/chat-application&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;configurable.group.editor&quot;
+  }
+}</component>
+  <component name="RunManager">
+    <configuration name="AllocationServicesApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="hostel_mainanance_application.allocation_services.AllocationServicesApplication" />
+      <module name="allocation-services" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="hostel_mainanance_application.allocation_services.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.AllocationServicesApplication" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="2100d663-23d6-4e6a-9f3b-b5d8da6981ed" name="Changes" comment="" />
+      <created>1750057117078</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1750057117078</updated>
+    </task>
+    <task id="LOCAL-00001" summary="created student services">
+      <option name="closed" value="true" />
+      <created>1750070833336</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1750070833336</updated>
+    </task>
+    <task id="LOCAL-00002" summary="create the exception for the student service">
+      <option name="closed" value="true" />
+      <created>1750087079514</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1750087079514</updated>
+    </task>
+    <task id="LOCAL-00003" summary="created Hostel Services">
+      <option name="closed" value="true" />
+      <created>1750095098623</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1750095098623</updated>
+    </task>
+    <task id="LOCAL-00004" summary="created Allocation Services">
+      <option name="closed" value="true" />
+      <created>1750257580949</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1750257580949</updated>
+    </task>
+    <task id="LOCAL-00005" summary="update the code">
+      <option name="closed" value="true" />
+      <created>1751370960639</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1751370960639</updated>
+    </task>
+    <task id="LOCAL-00006" summary="update the student services">
+      <option name="closed" value="true" />
+      <created>1751374655843</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1751374655843</updated>
+    </task>
+    <task id="LOCAL-00007" summary="update the  services">
+      <option name="closed" value="true" />
+      <created>1765641107655</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1765641107655</updated>
+    </task>
+    <task id="LOCAL-00008" summary="update the  services">
+      <option name="closed" value="true" />
+      <created>1766056336579</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1766056336579</updated>
+    </task>
+    <task id="LOCAL-00009" summary="frontend created">
+      <option name="closed" value="true" />
+      <created>1766056424464</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1766056424464</updated>
+    </task>
+    <task id="LOCAL-00010" summary="components created">
+      <option name="closed" value="true" />
+      <created>1766056478214</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1766056478214</updated>
+    </task>
+    <task id="LOCAL-00011" summary="updated">
+      <option name="closed" value="true" />
+      <created>1766056546714</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1766056546714</updated>
+    </task>
+    <task id="LOCAL-00012" summary="updated">
+      <option name="closed" value="true" />
+      <created>1768237123551</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1768237123551</updated>
+    </task>
+    <task id="LOCAL-00013" summary="swagger added">
+      <option name="closed" value="true" />
+      <created>1768237215921</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1768237215921</updated>
+    </task>
+    <task id="LOCAL-00014" summary="updated">
+      <option name="closed" value="true" />
+      <created>1768468414345</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1768468414345</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
+    <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="created student services" />
+    <MESSAGE value="create the exception for the student service" />
+    <MESSAGE value="created Hostel Services" />
+    <MESSAGE value="created Allocation Services" />
+    <MESSAGE value="update the code" />
+    <MESSAGE value="update the student services" />
+    <MESSAGE value="update the  services" />
+    <MESSAGE value="frontend created" />
+    <MESSAGE value="components created" />
+    <MESSAGE value="swagger added" />
+    <MESSAGE value="updated" />
+    <option name="LAST_COMMIT_MESSAGE" value="updated" />
+  </component>
+</project>
