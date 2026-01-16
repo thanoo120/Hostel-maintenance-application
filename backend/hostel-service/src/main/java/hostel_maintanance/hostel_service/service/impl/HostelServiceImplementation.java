@@ -7,6 +7,7 @@ import hostel_maintanance.hostel_service.mapper.HostelMapper;
 import hostel_maintanance.hostel_service.model.Hostel;
 import hostel_maintanance.hostel_service.repository.HostelRepository;
 import hostel_maintanance.hostel_service.service.HostelService;
+import hostel_maintanance.hostel_service.service.utill.Constants;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -37,7 +38,7 @@ public class HostelServiceImplementation implements HostelService {
     @Transactional
     public HostelDTO updateHostel(Long id, HostelDTO hostelDTO) {
         Hostel existingHostel = hostelRepository.findById(id)
-                .orElseThrow(() -> new ResourceNotFoundException("Hostel not found with ID: " + id));
+                .orElseThrow(() -> new ResourceNotFoundException(Constants.ROOM_NOT_FOUND + id));
 
         // Check if the updated name conflicts with another hostel
         if (!existingHostel.getHostelName().equals(hostelDTO.getName()) &&
