@@ -7,8 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
-import java.util.stream.Collectors;
-
 @Component
 public class HostelMapper {
 
@@ -31,8 +29,7 @@ public class HostelMapper {
         dto.setAvailableCapacity(hostel.getAvailableCapacity());
 
         List<RoomDTO> roomDTOs = hostel.getRooms().stream()
-                .map(roomMapper::toDto)
-                .collect(Collectors.toList());
+                .map(roomMapper::toDto).toList();
         dto.setRooms(roomDTOs);
 
         return dto;
