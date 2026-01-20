@@ -2,6 +2,8 @@ package hostel_maintanance.hostel_service.service.impl;
 
 import hostel_maintanance.hostel_service.dto.WorkerRequestDto;
 import hostel_maintanance.hostel_service.dto.WorkerResponseDto;
+import hostel_maintanance.hostel_service.mapper.WorkMapper;
+import hostel_maintanance.hostel_service.model.Workers;
 import hostel_maintanance.hostel_service.repository.WorkerRepository;
 import hostel_maintanance.hostel_service.service.WorkerService;
 import lombok.RequiredArgsConstructor;
@@ -14,25 +16,37 @@ import java.util.List;
 public class WorkerServiceImpl implements WorkerService {
 
     private final WorkerRepository workerRepository;
+    private final WorkMapper workMapper;
 
     @Override
     public WorkerResponseDto createWorker(WorkerRequestDto workerDetails) {
-       workerRepository.save(workerDetails)
+       Workers response=workerRepository.save(workMapper.toWorker(workerDetails));
+       return workMapper.toDto(response);
     }
 
     @Override
     public WorkerResponseDto deleteWorker(Long workerId) {
-        return null;
+        Workers existWorker=workerRepository.findById(workerId).orElseThrow();
+        workerRepository.delete(existWorker);
+        return workMapper.toDto(existWorker);
     }
 
     @Override
-    public WorkerResponseDto updateWorker(Long workerId) {
-        return null;
+    public WorkerResponseDto updateWorker(Long workerId,WorkerRequestDto requestDto) {
+        Workers updatableUser=workerRepository.findById(workerId).orElseThrow();
+        updatableUser.setPhoneNumber(requestDto.getPhoneNumber());
+        updatableUser.setName(requestDto.getName());
+        updatableUser.setJob(requestDto.getJob());
+        updatableUser.setAvailable(requestDto.isAvailable());
+        workerRepository.save(updatableUser);
+        return workMapper.toDto(updatableUser);
     }
 
     @Override
     public List<WorkerResponseDto> getAllWorkers() {
-        return List.of();
+        List<Workers> allWorkersDetails=workerRepository.findAll();
+        return allWorkersDetails.stream().map(workMapper::toDto).toList();
+
     }
 
     @Override
