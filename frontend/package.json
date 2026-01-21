@@ -1,4 +1,5 @@
 {
+  "type": "module",
   "name": "hostel-maintenance-frontend",
   "version": "1.0.0",
   "description": "Frontend for Hostel Maintenance Application",
@@ -7,13 +8,14 @@
     "axios": "^1.6.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-router-dom": "^6.20.0"
+    "react-router-dom": "^6.20.0",
+    "tailwindcss": "^4.1.18"
   },
   "devDependencies": {
     "@vitejs/plugin-react": "^4.2.1",
     "autoprefixer": "^10.4.23",
-    "postcss": "^8.5.6",
-    "tailwindcss": "^3.4.19",
+    "postcss": "^8.4.47",
+    "@tailwindcss/postcss": "^4.1.18",
     "vite": "^5.0.8"
   },
   "scripts": {

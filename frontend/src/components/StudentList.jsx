@@ -19,15 +19,10 @@ function StudentList() {
       const response = await studentAPI.getAll();
       setStudents(response.data);
     } catch (error) {
-      showMessage("error", "Failed to fetch students");
+      showToast("Failed to fetch students", "error");
     } finally {
       setLoading(false);
     }
-  };
-
-  const showMessage = (type, text) => {
-    setMessage({ type, text });
-    setTimeout(() => setMessage({ type: "", text: "" }), 3000);
   };
 
   const handleCreate = () => {
@@ -64,7 +59,7 @@ function StudentList() {
       editingStudent
         ? "Student updated successfully"
         : "Student registered successfully",
-      "success"
+      "success",
     );
   };
 
@@ -78,41 +73,60 @@ function StudentList() {
       </div>
 
       {loading ? (
-        <div className="loading">
-          <div className="spinner"></div>
+        <div className="text-center py-8 text-gray-600">
+          <div className="border-4 border-gray-300 border-t-indigo-500 rounded-full w-10 h-10 animate-spin mx-auto mb-4"></div>
           <p>Loading students...</p>
         </div>
       ) : students.length === 0 ? (
-        <div className="empty-state">
-          <div className="empty-state-icon">👨‍🎓</div>
+        <div className="text-center py-12 text-gray-400">
+          <div className="text-6xl mb-4">👨‍🎓</div>
           <p>No students found. Register your first student!</p>
         </div>
       ) : (
-        <table className="table">
+        <table className="w-full border-collapse mt-4">
           <thead>
             <tr>
-              <th>Student ID</th>
-              <th>Name</th>
-              <th>Email</th>
-              <th>Contact</th>
-              <th>Department</th>
-              <th>Course</th>
-              <th>Academic Year</th>
-              <th>Actions</th>
+              <th className="px-4 py-2 text-left bg-gray-100 font-semibold text-gray-800 border-b border-gray-200">
+                Student ID
+              </th>
+              <th className="px-4 py-2 text-left bg-gray-100 font-semibold text-gray-800 border-b border-gray-200">
+                Name
+              </th>
+              <th className="px-4 py-2 text-left bg-gray-100 font-semibold text-gray-800 border-b border-gray-200">
+                Email
+              </th>
+              <th className="px-4 py-2 text-left bg-gray-100 font-semibold text-gray-800 border-b border-gray-200">
+                Contact
+              </th>
+              <th className="px-4 py-2 text-left bg-gray-100 font-semibold text-gray-800 border-b border-gray-200">
+                Department
+              </th>
+              <th className="px-4 py-2 text-left bg-gray-100 font-semibold text-gray-800 border-b border-gray-200">
+                Course
+              </th>
+              <th className="px-4 py-2 text-left bg-gray-100 font-semibold text-gray-800 border-b border-gray-200">
+                Academic Year
+              </th>
+              <th className="px-4 py-2 text-left bg-gray-100 font-semibold text-gray-800 border-b border-gray-200">
+                Actions
+              </th>
             </tr>
           </thead>
           <tbody>
             {students.map((student) => (
-              <tr key={student.studentId}>
-                <td>{student.studentId}</td>
-                <td>{student.studentName}</td>
-                <td>{student.studentEmail}</td>
-                <td>{student.contactNumber}</td>
-                <td>{student.department}</td>
-                <td>{student.course}</td>
-                <td>{student.academicYear}</td>
-                <td>
-                  <div className="action-buttons">
+              <tr
+                key={student.studentId}
+                className="hover:bg-gray-50 border-b border-gray-200"
+              >
+                <td className="px-4 py-3">{student.studentId}</td>
+                <td className="px-4 py-3">{student.studentName}</td>
+                <td className="px-4 py-3">{student.studentEmail}</td>
+                <td className="px-4 py-3">{student.contactNumber}</td>
+                <td className="px-4 py-3">{student.department}</td>
+                <td className="px-4 py-3">{student.course}</td>
+                <td className="px-4 py-3">{student.academicYear}</td>
+                <td className="px-4 py-3">
+                  <div className="flex gap-2">
                     <button
                       className="btn btn-sm btn-secondary"
                       onClick={() => handleEdit(student)}

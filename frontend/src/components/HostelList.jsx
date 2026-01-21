@@ -73,12 +73,14 @@ function HostelList() {
       "success",
       editingHostel
         ? "Hostel updated successfully"
-        : "Hostel created successfully"
+        : "Hostel created successfully",
     );
   };
 
   if (loading) {
-    return <div className="loading">Loading hostels...</div>;
+    return (
+      <div className="text-center py-8 text-gray-600">Loading hostels...</div>
+    );
   }
 
   return (
@@ -95,32 +97,47 @@ function HostelList() {
       )}
 
       {hostels.length === 0 ? (
-        <div className="empty-state">
-          <div className="empty-state-icon">🏠</div>
+        <div className="text-center py-12 text-gray-400">
+          <div className="text-6xl mb-4">🏠</div>
           <p>No hostels found. Create your first hostel!</p>
         </div>
       ) : (
-        <table className="table">
+        <table className="w-full border-collapse mt-4">
           <thead>
             <tr>
-              <th>ID</th>
-              <th>Name</th>
-              <th>Location</th>
-              <th>Total Capacity</th>
-              <th>Available Capacity</th>
-              <th>Actions</th>
+              <th className="px-4 py-2 text-left bg-gray-100 font-semibold text-gray-800 border-b border-gray-200">
+                ID
+              </th>
+              <th className="px-4 py-2 text-left bg-gray-100 font-semibold text-gray-800 border-b border-gray-200">
+                Name
+              </th>
+              <th className="px-4 py-2 text-left bg-gray-100 font-semibold text-gray-800 border-b border-gray-200">
+                Location
+              </th>
+              <th className="px-4 py-2 text-left bg-gray-100 font-semibold text-gray-800 border-b border-gray-200">
+                Total Capacity
+              </th>
+              <th className="px-4 py-2 text-left bg-gray-100 font-semibold text-gray-800 border-b border-gray-200">
+                Available Capacity
+              </th>
+              <th className="px-4 py-2 text-left bg-gray-100 font-semibold text-gray-800 border-b border-gray-200">
+                Actions
+              </th>
             </tr>
           </thead>
           <tbody>
             {hostels.map((hostel) => (
-              <tr key={hostel.id}>
-                <td>{hostel.id}</td>
-                <td>{hostel.name}</td>
-                <td>{hostel.location || "N/A"}</td>
-                <td>{hostel.totalCapacity || 0}</td>
-                <td>{hostel.availableCapacity || 0}</td>
-                <td>
-                  <div className="action-buttons">
+              <tr
+                key={hostel.id}
+                className="hover:bg-gray-50 border-b border-gray-200"
+              >
+                <td className="px-4 py-3">{hostel.id}</td>
+                <td className="px-4 py-3">{hostel.name}</td>
+                <td className="px-4 py-3">{hostel.location || "N/A"}</td>
+                <td className="px-4 py-3">{hostel.totalCapacity || 0}</td>
+                <td className="px-4 py-3">{hostel.availableCapacity || 0}</td>
+                <td className="px-4 py-3">
+                  <div className="flex gap-2">
                     <button
                       className="btn btn-sm btn-secondary"
                       onClick={() => handleEdit(hostel)}

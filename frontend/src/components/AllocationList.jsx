@@ -109,19 +109,19 @@ function AllocationList() {
   };
 
   if (loading) {
-    return <div className="loading">Loading allocations...</div>;
+    return (
+      <div className="text-center py-8 text-gray-600">
+        Loading allocations...
+      </div>
+    );
   }
 
   return (
     <div className="card">
       <div className="card-header">
         <h2 className="card-title">Room Allocations</h2>
-        <div>
-          <button
-            className="btn btn-primary"
-            onClick={handleAllocate}
-            style={{ marginRight: "0.5rem" }}
-          >
+        <div className="flex gap-2">
+          <button className="btn btn-primary" onClick={handleAllocate}>
             + Allocate Room
           </button>
           <button
@@ -129,7 +129,6 @@ function AllocationList() {
               filter === "all" ? "btn-primary" : "btn-secondary"
             }`}
             onClick={() => setFilter("all")}
-            style={{ marginRight: "0.5rem" }}
           >
             All
           </button>
@@ -149,43 +148,72 @@ function AllocationList() {
       )}
 
       {allocations.length === 0 ? (
-        <div className="empty-state">
-          <div className="empty-state-icon">📋</div>
+        <div className="text-center py-12 text-gray-400">
+          <div className="text-6xl mb-4">📋</div>
           <p>No allocations found. Allocate your first room!</p>
         </div>
       ) : (
-        <table className="table">
+        <table className="w-full border-collapse mt-4">
           <thead>
             <tr>
-              <th>ID</th>
-              <th>Student</th>
-              <th>Hostel</th>
-              <th>Room</th>
-              <th>Allocation Date</th>
-              <th>Deallocation Date</th>
-              <th>Status</th>
-              <th>Remarks</th>
-              <th>Actions</th>
+              <th className="px-4 py-2 text-left bg-gray-100 font-semibold text-gray-800 border-b border-gray-200">
+                ID
+              </th>
+              <th className="px-4 py-2 text-left bg-gray-100 font-semibold text-gray-800 border-b border-gray-200">
+                Student
+              </th>
+              <th className="px-4 py-2 text-left bg-gray-100 font-semibold text-gray-800 border-b border-gray-200">
+                Hostel
+              </th>
+              <th className="px-4 py-2 text-left bg-gray-100 font-semibold text-gray-800 border-b border-gray-200">
+                Room
+              </th>
+              <th className="px-4 py-2 text-left bg-gray-100 font-semibold text-gray-800 border-b border-gray-200">
+                Allocation Date
+              </th>
+              <th className="px-4 py-2 text-left bg-gray-100 font-semibold text-gray-800 border-b border-gray-200">
+                Deallocation Date
+              </th>
+              <th className="px-4 py-2 text-left bg-gray-100 font-semibold text-gray-800 border-b border-gray-200">
+                Status
+              </th>
+              <th className="px-4 py-2 text-left bg-gray-100 font-semibold text-gray-800 border-b border-gray-200">
+                Remarks
+              </th>
+              <th className="px-4 py-2 text-left bg-gray-100 font-semibold text-gray-800 border-b border-gray-200">
+                Actions
+              </th>
             </tr>
           </thead>
           <tbody>
             {allocations.map((allocation) => (
-              <tr key={allocation.id}>
-                <td>{allocation.id}</td>
-                <td>{allocation.studentName || allocation.studentId}</td>
-                <td>{allocation.hostelName || "N/A"}</td>
-                <td>{allocation.roomNumber || allocation.roomId}</td>
-                <td>{formatDate(allocation.allocationDate)}</td>
-                <td>{formatDate(allocation.deAllocationDate)}</td>
-                <td>
+              <tr
+                key={allocation.id}
+                className="hover:bg-gray-50 border-b border-gray-200"
+              >
+                <td className="px-4 py-3">{allocation.id}</td>
+                <td className="px-4 py-3">
+                  {allocation.studentName || allocation.studentId}
+                </td>
+                <td className="px-4 py-3">{allocation.hostelName || "N/A"}</td>
+                <td className="px-4 py-3">
+                  {allocation.roomNumber || allocation.roomId}
+                </td>
+                <td className="px-4 py-3">
+                  {formatDate(allocation.allocationDate)}
+                </td>
+                <td className="px-4 py-3">
+                  {formatDate(allocation.deAllocationDate)}
+                </td>
+                <td className="px-4 py-3">
                   {allocation.active ? (
                     <span className="badge badge-success">Active</span>
                   ) : (
                     <span className="badge badge-danger">Inactive</span>
                   )}
                 </td>
-                <td>{allocation.remarks || "N/A"}</td>
-                <td>
+                <td className="px-4 py-3">{allocation.remarks || "N/A"}</td>
+                <td className="px-4 py-3">
                   {allocation.active && (
                     <button
                       className="btn btn-sm btn-danger"

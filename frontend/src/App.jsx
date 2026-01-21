@@ -1,6 +1,5 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
-import "./App.css";
 import HostelList from "./components/HostelList.jsx";
 import StudentList from "./components/StudentList.jsx";
 import AllocationList from "./components/AllocationList.jsx";
@@ -10,33 +9,48 @@ import Dashboard from "./components/Dashboard.jsx";
 function App() {
   return (
     <Router>
-      <div className="app">
-        <nav className="navbar">
-          <div className="nav-container">
-            <h1 className="nav-logo">🏠 Hostel Management</h1>
-            <ul className="nav-menu">
+      <div className="min-h-screen flex flex-col">
+        <nav className="bg-gradient-to-r from-indigo-500 to-purple-600 text-white py-4 shadow-lg">
+          <div className="max-w-6xl mx-auto px-8 flex justify-between items-center">
+            <h1 className="text-2xl font-bold">🏠 Hostel Management</h1>
+            <ul className="flex list-none gap-8 m-0 p-0">
               <li>
-                <Link to="/" className="nav-link">
+                <Link
+                  to="/"
+                  className="text-white no-underline font-medium px-4 py-2 rounded-md transition-colors duration-300 hover:bg-white/20"
+                >
                   Dashboard
                 </Link>
               </li>
               <li>
-                <Link to="/hostels" className="nav-link">
+                <Link
+                  to="/hostels"
+                  className="text-white no-underline font-medium px-4 py-2 rounded-md transition-colors duration-300 hover:bg-white/20"
+                >
                   Hostels
                 </Link>
               </li>
               <li>
-                <Link to="/students" className="nav-link">
+                <Link
+                  to="/students"
+                  className="text-white no-underline font-medium px-4 py-2 rounded-md transition-colors duration-300 hover:bg-white/20"
+                >
                   Students
                 </Link>
               </li>
               <li>
-                <Link to="/rooms" className="nav-link">
+                <Link
+                  to="/rooms"
+                  className="text-white no-underline font-medium px-4 py-2 rounded-md transition-colors duration-300 hover:bg-white/20"
+                >
                   Rooms
                 </Link>
               </li>
               <li>
-                <Link to="/allocations" className="nav-link">
+                <Link
+                  to="/allocations"
+                  className="text-white no-underline font-medium px-4 py-2 rounded-md transition-colors duration-300 hover:bg-white/20"
+                >
                   Allocations
                 </Link>
               </li>
@@ -44,7 +58,7 @@ function App() {
           </div>
         </nav>
 
-        <main className="main-content">
+        <main className="flex-1 max-w-6xl w-full mx-auto my-8 px-8">
           <Routes>
             <Route path="/" element={<Dashboard />} />
             <Route path="/hostels" element={<HostelList />} />

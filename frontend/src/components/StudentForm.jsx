@@ -12,6 +12,9 @@ function StudentForm({ student, onClose, onSuccess }) {
     course: "",
     academicYear: "",
   });
+  const [errors, setErrors] = useState({});
+  const [submitting, setSubmitting] = useState(false);
+  const { showToast } = useToast();
 
   useEffect(() => {
     if (student) {
