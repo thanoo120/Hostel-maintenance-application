@@ -51,11 +51,14 @@ public class WorkerServiceImpl implements WorkerService {
 
     @Override
     public WorkerResponseDto getWorkerById(Long workerId) {
-        return null;
+        Workers workerInfo=workerRepository.findById(workerId).orElseThrow();
+        return workMapper.toDto(workerInfo);
+
     }
 
     @Override
     public List<WorkerResponseDto> getWorkersByWorkType(String type) {
-        return List.of();
+        List<Workers> allWorkers=workerRepository.findAll();
+        return allWorkers.stream().map(workMapper::toDto).toList();
     }
 }
