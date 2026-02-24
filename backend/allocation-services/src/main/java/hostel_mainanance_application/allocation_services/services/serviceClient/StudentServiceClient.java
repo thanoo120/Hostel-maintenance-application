@@ -22,7 +22,8 @@ public class StudentServiceClient {
     public StudentDTO getStudent(String studentId) {
         try {
             return restTemplate.getForObject(studentServiceUrl + studentId, StudentDTO.class);
-        } catch (RestClientException e) {
+        }
+        catch (RestClientException e) {
             throw new ResourceNotFoundException("Student not found with ID: " + studentId);
         }
     }

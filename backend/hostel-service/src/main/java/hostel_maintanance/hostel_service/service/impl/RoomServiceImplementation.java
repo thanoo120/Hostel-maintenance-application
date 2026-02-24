@@ -26,11 +26,11 @@ public class RoomServiceImplementation implements RoomService {
     @Override
     @Transactional
     public RoomDTO addRoom(Long hostelId, RoomDTO roomDTO) {
-        // Check if the hostel exists
+
         Hostel hostel = hostelRepository.findById(hostelId)
                 .orElseThrow(() -> new ResourceNotFoundException("Hostel not found with ID: " + hostelId));
 
-        // Check if room with same number exists in the hostel
+
         if (roomRepository.existsByHostelIdAndRoomNumber(hostelId, roomDTO.getRoomNumber())) {
             throw new DuplicateResourceException("Room with number " + roomDTO.getRoomNumber() +
                     " already exists in this hostel");
@@ -38,7 +38,7 @@ public class RoomServiceImplementation implements RoomService {
 
         Room room = roomMapper.toEntity(roomDTO);
         room.setHostel(hostel);
-        room.setOccupiedSpaces(0); // Initially empty
+        room.setOccupiedSpaces(0);
 
         Room savedRoom = roomRepository.save(room);
         return roomMapper.toDto(savedRoom);
@@ -92,11 +92,9 @@ public class RoomServiceImplementation implements RoomService {
     @Override
     @Transactional
     public List<RoomDTO> getRoomsByHostelId(Long hostelId) {
-        // Check if the hostel exists
         if (!hostelRepository.existsById(hostelId)) {
             throw new ResourceNotFoundException("Hostel not found with ID: " + hostelId);
         }
-
         return roomRepository.findByHostelId(hostelId).stream()
                 .map(roomMapper::toDto)
                 .toList();
