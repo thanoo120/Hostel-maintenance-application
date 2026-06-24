@@ -8,6 +8,8 @@ import lombok.Data;
 @Builder
 public class WorkerResponseDto {
 
+    private Long id;
+
     @NotNull(message = "name not be null")
     String name;
     @NotNull(message = "phone Number not be null")

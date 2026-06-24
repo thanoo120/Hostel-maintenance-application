@@ -109,6 +109,32 @@ export const allocationAPI = {
   getByHostelId: (hostelId) => allocationClient.get(`/allocations/hostel/${hostelId}`)
 };
 
+// Worker API
+export const workerAPI = {
+  getAll: () => hostelClient.get('/workers'),
+  getById: (id) => hostelClient.get(`/workers/${id}`),
+  create: (workerData) => hostelClient.post('/workers', workerData),
+  update: (id, workerData) => hostelClient.put(`/workers/${id}`, workerData),
+  delete: (id) => hostelClient.delete(`/workers/${id}`),
+  getByType: (type) => hostelClient.get(`/workers/type/${type}`)
+};
+
+// Maintenance Request API
+export const maintenanceAPI = {
+  getAll: () => hostelClient.get('/maintenance-requests'),
+  getById: (id) => hostelClient.get(`/maintenance-requests/${id}`),
+  create: (requestData) => hostelClient.post('/maintenance-requests', requestData),
+  assign: (id, workerId) => hostelClient.put(`/maintenance-requests/${id}/assign`, null, {
+    params: { workerId }
+  }),
+  resolve: (id, remarks) => hostelClient.put(`/maintenance-requests/${id}/resolve`, null, {
+    params: { remarks }
+  }),
+  getByStudentId: (studentId) => hostelClient.get(`/maintenance-requests/student/${studentId}`),
+  getByRoomId: (roomId) => hostelClient.get(`/maintenance-requests/room/${roomId}`),
+  getByHostelId: (hostelId) => hostelClient.get(`/maintenance-requests/hostel/${hostelId}`)
+};
+
 
 
 

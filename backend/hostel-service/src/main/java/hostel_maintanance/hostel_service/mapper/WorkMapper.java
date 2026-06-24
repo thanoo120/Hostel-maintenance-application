@@ -22,6 +22,7 @@ public class WorkMapper {
     public WorkerResponseDto toDto(Workers worker){
 
         return WorkerResponseDto.builder()
+                .id(worker.getId())
                 .job(worker.getJob())
                 .name(worker.getName())
                 .isAvailable(worker.isAvailable())
